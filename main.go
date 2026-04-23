@@ -19,7 +19,10 @@ import (
 // @BasePath		/
 func main() {
 	if err := cmd.Execute(); err != nil {
+		// Print error to stderr and exit with a non-zero status code.
+		// Using exit code 2 to distinguish between usage errors (1) and
+		// runtime errors (2) — more informative for scripting purposes.
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-		os.Exit(1)
+		os.Exit(2)
 	}
 }
