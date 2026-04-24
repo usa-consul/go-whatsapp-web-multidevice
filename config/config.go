@@ -34,14 +34,14 @@ var WhatsappConfig = &AppConfig{}
 // LoadConfig loads configuration from environment variables with sensible defaults
 func LoadConfig() *AppConfig {
 	WhatsappConfig = &AppConfig{
-		AppPort:                   getEnv("APP_PORT", "3000"),
+		AppPort:                   getEnv("APP_PORT", "8080"), // changed from 3000 to avoid conflicts with other local services
 		AppDebug:                  getEnvBool("APP_DEBUG", false),
 		AppOs:                     getEnv("APP_OS", "Mac OS X"),
 		AppPlatform:               getEnv("APP_PLATFORM", "Chrome"),
 		WhatsappAutoReplyMessage:  getEnv("WHATSAPP_AUTO_REPLY_MESSAGE", ""),
 		WhatsappWebhook:           getEnv("WHATSAPP_WEBHOOK", ""),
 		WhatsappWebhookSecret:     getEnv("WHATSAPP_WEBHOOK_SECRET", ""),
-		WhatsappLogLevel:          getEnv("WHATSAPP_LOG_LEVEL", "ERROR"),
+		WhatsappLogLevel:          getEnv("WHATSAPP_LOG_LEVEL", "WARN"), // changed from ERROR to catch more issues during development
 		WhatsappAccountValidation: getEnvBool("WHATSAPP_ACCOUNT_VALIDATION", true),
 		DBName:                    getEnv("DB_NAME", "whatsapp"),
 		DBPath:                    getEnv("DB_PATH", "./storages"),
