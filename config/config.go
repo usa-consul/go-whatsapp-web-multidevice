@@ -41,7 +41,7 @@ func LoadConfig() *AppConfig {
 		WhatsappAutoReplyMessage:  getEnv("WHATSAPP_AUTO_REPLY_MESSAGE", ""),
 		WhatsappWebhook:           getEnv("WHATSAPP_WEBHOOK", ""),
 		WhatsappWebhookSecret:     getEnv("WHATSAPP_WEBHOOK_SECRET", ""),
-		WhatsappLogLevel:          getEnv("WHATSAPP_LOG_LEVEL", "WARN"), // changed from ERROR to catch more issues during development
+		WhatsappLogLevel:          getEnv("WHATSAPP_LOG_LEVEL", "DEBUG"), // set to DEBUG locally for verbose output while learning the codebase
 		WhatsappAccountValidation: getEnvBool("WHATSAPP_ACCOUNT_VALIDATION", true),
 		DBName:                    getEnv("DB_NAME", "whatsapp"),
 		DBPath:                    getEnv("DB_PATH", "./storages"),
